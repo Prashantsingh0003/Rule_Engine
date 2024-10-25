@@ -19,6 +19,15 @@ The primary goal of this project is to evaluate user eligibility based on predef
 - Combining multiple ASTs to create more complex rules.
 - Evaluating user data against these rules.
 
+![image](https://github.com/user-attachments/assets/3609d374-a062-4cde-b478-5fdabf40cd6b)
+
+![image](https://github.com/user-attachments/assets/2832583e-b870-48e0-965e-549b65f1b3a4)
+
+![image](https://github.com/user-attachments/assets/1150f7ab-6514-4845-951d-968fcf4ab320)
+
+![image](https://github.com/user-attachments/assets/66abc981-6b6e-4f43-b842-987cba561410)
+
+
 ## Data Structure
 To support dynamic rule handling, the following data structure is implemented to represent the AST:
 
@@ -53,6 +62,7 @@ The following API endpoints allow rule creation, modification, and evaluation:
 create_rule(rule_string): Parses a rule string into an AST.
 combine_rules(rules): Takes a list of rule strings and combines them into a single AST.
 evaluate_rule(JSON_data): Evaluates user data against the combined rule’s AST and returns True if the data meets the rule conditions, otherwise False.
+
 Sample Usage
 # Sample rule strings
 rule1 = "((age > 30 AND department = 'Sales') OR (age < 25 AND department = 'Marketing')) AND (salary > 50000 OR experience > 5)"
@@ -65,13 +75,18 @@ node2 = create_rule(rule2)
 # Combining rules
 combined_node = combine_rules([rule1, rule2])
 
+
+
 # Evaluating rules
 data = {"age": 35, "department": "Sales", "salary": 60000, "experience": 3}
 result = evaluate_rule(combined_node, data)  # Returns True or False
+
+
 Sample Rules
 Rule 1: "((age > 30 AND department = 'Sales') OR (age < 25 AND department = 'Marketing')) AND (salary > 50000 OR experience > 5)"
 Rule 2: "((age > 30 AND department = 'Marketing')) AND (salary > 20000 OR experience > 5)"
 These sample rules are parsed into ASTs using the create_rule function and evaluated by evaluate_rule.
+
 
 Testing
 Test Cases
